@@ -41,7 +41,7 @@ Or [download as ZIP](https://github.com/juicy/juicy-redirect/archive/gh-pages.zi
 Attribute      | Options            | Default  | Description
 ---            | ---                | ---      | ---
 `url`          | *String*           |          | Destination URL
-`url`          | `current`          |          | If a string `"curent"` is provided as the URL, the component reloads the page
+`url`          | `current`          |          | If a string `"current"` is provided as the URL, the component reloads the page
 `history`      |                    |          | If attributte `history` is present, the History API `pushState` is used instead of `window.location`
 
 ## Contributing
