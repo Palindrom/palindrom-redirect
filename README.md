@@ -42,7 +42,13 @@ Attribute      | Options            | Default  | Description
 ---            | ---                | ---      | ---
 `url`          | *String*           |          | Destination URL
 `url`          | `current`          |          | If a string `"current"` is provided as the URL, the component reloads the page
-`history`      |                    |          | If attributte `history` is present, the History API `pushState` is used instead of `window.location`
+`history`      |                    |          | If attribute `history` is present, the History API `pushState` is used instead of `window.location`
+
+## Events
+
+Name                       | Details             | Bubbles  | Description
+---                        | ---                 | ---      | ---
+`juicy-redirect-pushstate` | `{url: "/new/path"} |   yes    | Triggers every tie `history.state` is changed by the element
 
 ## Contributing
 

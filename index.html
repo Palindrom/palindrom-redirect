@@ -54,6 +54,11 @@
         document.getElementById("redirect2").setAttribute("url", "/");
     });
 </script>
+<script>
+    window.addEventListener("juicy-redirect-pushstate", function (e) {
+        console.info("`juicy-redirect-pushstate` triggered with", e.detail)
+    });
+</script>
 
 </body>
 </html>
