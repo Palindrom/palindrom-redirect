@@ -1,7 +1,7 @@
 {
   "name": "juicy-redirect",
   "version": "0.1.0",
-  "description": "Custom Element that changes redirects to a new URL when an attribute is changed",
+  "description": "Custom Element that redirects to a new URL when an attribute is changed",
   "license": "MIT",
   "main": "src/juicy-redirect.html",
   "keywords": [

@@ -1,6 +1,6 @@
 # &lt;link is="juicy-redirect"&gt;
 
-> Custom Element that changes redirects to a new URL when an attribute is changed. It can be configured to work using window location or History API.
+> Custom Element that redirects to a new URL when an attribute is changed. It can be configured to work using window location or History API.
 
 ## Demo
 
