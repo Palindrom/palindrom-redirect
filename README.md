@@ -48,7 +48,13 @@ Attribute      | Options            | Default  | Description
 
 Name                       | Details             | Bubbles  | Description
 ---                        | ---                 | ---      | ---
-`puppet-redirect-pushstate`| `{url: "/new/path"} |   yes    | Triggers every tie `history.state` is changed by the element. This event is being listened by PuppetJs, and triggers updating its state.
+`puppet-redirect-pushstate`| `{url: "/new/path"}` |   yes    | Triggers every tie `history.state` is changed by the element. This event is being listened by PuppetJs, and triggers updating its state.
+
+## Methods
+
+Name       | Parameters     | Returns                            | Description
+---        | ---            | ---                                | ---
+`redirect` | _{String}_ url | _{String}_ exact redirect location | Performs redirect to given url programmatically
 
 ## Contributing
 
