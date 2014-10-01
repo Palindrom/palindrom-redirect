@@ -48,7 +48,13 @@ Attribute      | Options            | Default  | Description
 
 Name                       | Details             | Bubbles  | Description
 ---                        | ---                 | ---      | ---
-`juicy-redirect-pushstate` | `{url: "/new/path"} |   yes    | Triggers every tie `history.state` is changed by the element
+`juicy-redirect-pushstate` | `{url: "/new/path"}` |   yes    | Triggers every tie `history.state` is changed by the element
+
+## Methods
+
+Name       | Parameters     | Returns                            | Description
+---        | ---            | ---                                | ---
+`redirect` | _{String}_ url | _{String}_ exact redirect location | Performs redirect to given url programmatically
 
 ## Contributing
 
