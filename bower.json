@@ -5,7 +5,6 @@
   "license": "MIT",
   "main": "src/juicy-redirect.html",
   "keywords": [
-    "polymer",
     "web-components"
   ],
   "ignore": [
@@ -16,7 +15,6 @@
     "Gruntfile.js"
   ],
   "dependencies": {
-    "platform": "Polymer/platform#~0.4.1"
   },
   "authors": [
     "Marcin Warpechowski <marcin@nextgen.pl>"
