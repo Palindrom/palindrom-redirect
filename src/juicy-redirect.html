@@ -25,7 +25,10 @@
             if(url == "current") {
                 url = window.location.href;
             }
-            if(this.hasAttribute("history")) {
+            var target = this.getAttribute("target");
+            if(target && target !== '_self'){
+                window.open(url, this.getAttribute("target"));
+            } else if(this.hasAttribute("history")) {
                 history.pushState(null, null, url);
                 this.dispatchEvent(
                     new CustomEvent(
