@@ -43,6 +43,7 @@ Attribute      | Options            | Default  | Description
 `url`          | *String*           |          | Destination URL
 `url`          | `current`          |          | If a string `"current"` is provided as the URL, the component reloads the page
 `history`      |                    |          | If attribute `history` is present, the History API `pushState` is used instead of `window.location`
+`target`       | *String*           | `_self`  | Target where to open the link. Use `"_blank"` to open in new tab
 
 ## Events
 

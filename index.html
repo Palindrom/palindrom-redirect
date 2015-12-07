@@ -46,6 +46,17 @@
     });
 </script>
 
+<h3>Open new tab</h3>
+<button id="example1_blank">&lt;link is="juicy-redirect" url="/" target="_blank"&gt;</button>
+
+<link is="juicy-redirect" id="redirect1_blank" target="_blank">
+
+<script>
+    document.getElementById("example1_blank").addEventListener("click", function () {
+        document.getElementById("redirect1_blank").setAttribute("url", "/");
+    });
+</script>
+
 <h2>Redirect using History API (<code>history.pushState</code>)</h2>
 <p>Watch console entries for events logging</p>
 
