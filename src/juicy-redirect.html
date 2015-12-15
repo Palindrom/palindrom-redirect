@@ -3,9 +3,22 @@
     (function (global) {
         var JuicyRedirectElementPrototype = Object.create(HTMLLinkElement.prototype);
 
+        JuicyRedirectElementPrototype.createdCallback = function(){
+            var url = null;
+            Object.defineProperty(this, 'url',{
+                set: function(val){
+                    url = val;
+                    this.redirect(url);
+                },
+                get: function(){
+                    return url;
+                }
+            })
+        };
+
         JuicyRedirectElementPrototype.attachedCallback = function(){
             this.redirect( this.getAttribute("url") );
-        }
+        };
         /**
          * @event juicy-redirect-pushstate
          * Called whenever `history.state` is changed.
@@ -14,7 +27,9 @@
         JuicyRedirectElementPrototype.attributeChangedCallback = function (attributeName, oldVal, newVal) {
             switch(attributeName) {
                 case "url":
-                    document.contains(this) && this.redirect( newVal );
+                    if(document.contains(this)){
+                            this.url = newVal;
+                    }
                     break;
             }
         };
@@ -44,8 +59,9 @@
                 window.location = url;
             }
             this.setAttribute("url", "");
+            this.dispatchEvent(new CustomEvent('url-changed',{detail: ""}));
             return url;
-        }
+        };
 
         global.JuicyRedirectElement = document.registerElement('juicy-redirect', {
             prototype: JuicyRedirectElementPrototype,
