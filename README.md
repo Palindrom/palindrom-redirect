@@ -18,7 +18,7 @@ Or [download as ZIP](https://github.com/PuppetJs/puppet-redirect/archive/gh-page
 
 ## Usage
 
-1. Import Web Components' polyfill:
+1. Import Web Components' polyfill, if needed:
 
     ```html
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
@@ -27,7 +27,7 @@ Or [download as ZIP](https://github.com/PuppetJs/puppet-redirect/archive/gh-page
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/puppet-redirect/src/puppet-redirect.html">
+    <link rel="import" href="bower_components/puppet-redirect/puppet-redirect.html">
     ```
 
 3. Start using it!
