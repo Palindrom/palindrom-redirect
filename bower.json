@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "description": "Custom Element that redirects to a new URL when an attribute is changed",
   "license": "MIT",
-  "main": "src/juicy-redirect.html",
+  "main": "juicy-redirect.html",
   "keywords": [
     "web-components"
   ],

@@ -18,7 +18,7 @@ Or [download as ZIP](https://github.com/juicy/juicy-redirect/archive/gh-pages.zi
 
 ## Usage
 
-1. Import Web Components' polyfill:
+1. Import Web Components' polyfill, if needed:
 
     ```html
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
@@ -27,7 +27,7 @@ Or [download as ZIP](https://github.com/juicy/juicy-redirect/archive/gh-pages.zi
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/juicy-redirect/src/juicy-redirect.html">
+    <link rel="import" href="bower_components/juicy-redirect/juicy-redirect.html">
     ```
 
 3. Start using it!
