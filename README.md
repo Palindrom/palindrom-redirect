@@ -14,7 +14,7 @@ Install the component using [Bower](http://bower.io/):
 $ bower install puppet-redirect --save
 ```
 
-Or [download as ZIP](https://github.com/PuppetJs/puppet-redirect/archive/gh-pages.zip).
+Or [download as ZIP](https://github.com/PuppetJs/puppet-redirect/archive/master.zip).
 
 ## Usage
 
