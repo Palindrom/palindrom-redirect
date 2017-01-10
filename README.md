@@ -14,7 +14,7 @@ Install the component using [Bower](http://bower.io/):
 $ bower install juicy-redirect --save
 ```
 
-Or [download as ZIP](https://github.com/juicy/juicy-redirect/archive/gh-pages.zip).
+Or [download as ZIP](https://github.com/juicy/juicy-redirect/archive/master.zip).
 
 ## Usage
 
