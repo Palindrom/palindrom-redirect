@@ -33,7 +33,7 @@ Or [download as ZIP](https://github.com/PuppetJs/puppet-redirect/archive/master.
 3. Start using it!
 
     ```html
-    <link is="puppet-redirect" url=""></puppet-redirect>
+    <link is="puppet-redirect" url="">
     ```
 
 ## Attributes
