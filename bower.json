@@ -1,9 +1,9 @@
 {
-  "name": "puppet-redirect",
+  "name": "palindrom-redirect",
   "version": "0.4.3",
-  "description": "Custom Element that redirects to a new URL when an attribute is changed. It's also being listened by PuppetJS.",
+  "description": "Custom Element that redirects to a new URL when an attribute is changed. It's also being listened by Palindrom.",
   "license": "MIT",
-  "main": "puppet-redirect.html",
+  "main": "palindrom-redirect.html",
   "keywords": [
     "web-components"
   ],

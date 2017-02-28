@@ -24,10 +24,10 @@ module.exports = function(grunt) {
         },
         bump: {
           options: {
-            files: ['package.json', 'bower.json', 'puppet-redirect.html'],
+            files: ['package.json', 'bower.json', 'palindrom-redirect.html'],
             commit: true,
             commitMessage: '%VERSION%',
-            commitFiles: ['package.json', 'bower.json', 'puppet-redirect.html'],
+            commitFiles: ['package.json', 'bower.json', 'palindrom-redirect.html'],
             createTag: true,
             tagName: '%VERSION%',
             tagMessage: 'Version %VERSION%',
