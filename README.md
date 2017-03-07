@@ -33,7 +33,7 @@ Or [download as ZIP](https://github.com/juicy/juicy-redirect/archive/master.zip)
 3. Start using it!
 
     ```html
-    <link is="juicy-redirect" url=""></juicy-redirect>
+    <link is="juicy-redirect" url=""></link>
     ```
 
 ## Attributes
