@@ -4,14 +4,13 @@
         var JuicyRedirectElementPrototype = Object.create(HTMLLinkElement.prototype);
 
         JuicyRedirectElementPrototype.createdCallback = function(){
-            var url = null;
+        
             Object.defineProperty(this, 'url',{
                 set: function(val){
-                    url = val;
-                    this.redirect(url);
+                    this.setAttribute('url', val);
                 },
                 get: function(){
-                    return url;
+                    return this.getAttribute('url');
                 }
             })
         };
@@ -28,7 +27,7 @@
             switch(attributeName) {
                 case "url":
                     if(document.contains(this)){
-                            this.url = newVal;
+                        this.redirect(newVal);
                     }
                     break;
             }
