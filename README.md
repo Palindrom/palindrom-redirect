@@ -21,7 +21,7 @@ Or [download as ZIP](https://github.com/Palindrom/palindrom-redirect/archive/mas
 1. Import Web Components' polyfill, if needed:
 
     ```html
-    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     ```
 
 2. Import Custom Element:
@@ -57,13 +57,7 @@ Name       | Parameters     | Returns                            | Description
 ---        | ---            | ---                                | ---
 `redirect` | _{String}_ url | _{String}_ exact redirect location | Performs redirect to given url programmatically
 
-## Contributing
-
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+## [Contributing and Development](CONTRIBUTING.md)
 
 ## History
 
