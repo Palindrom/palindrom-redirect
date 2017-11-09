@@ -44,25 +44,29 @@
                 window.open(url, this.getAttribute("target"));
             } else if(this.hasAttribute("history")) {
                 history.pushState(null, null, url);
-                this.dispatchEvent(
-                    new CustomEvent(
-                        "palindrom-redirect-pushstate",
-                        {
-                            "detail":{"url":url},
-                            "bubbles": true
-                        }
-                    )
-                );
+                if (this.getAttribute('is') == "palindrom-redirect") {
+                    this.dispatchEvent(
+                        new CustomEvent(
+                            "palindrom-redirect-pushstate",
+                            {
+                                "detail":{"url":url},
+                                "bubbles": true
+                            }
+                        )
+                    );
+                }
                 /* backward compatibility */
-                this.dispatchEvent(
-                    new CustomEvent(
-                        "puppet-redirect-pushstate",
-                        {
-                            "detail":{"url":url},
-                            "bubbles": true
-                        }
-                    )
-                );
+                if (this.getAttribute('is') == "puppet-redirect") {
+                    this.dispatchEvent(
+                        new CustomEvent(
+                            "puppet-redirect-pushstate",
+                            {
+                                "detail":{"url":url},
+                                "bubbles": true
+                            }
+                        )
+                    );
+                }
             }
             else {
                 window.location = url;
