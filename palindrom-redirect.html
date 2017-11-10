@@ -46,22 +46,12 @@
                 history.pushState(null, null, url);
                 this.dispatchEvent(
                     new CustomEvent(
-                        "palindrom-redirect-pushstate",
-                        {
-                            "detail":{"url":url},
-                            "bubbles": true
-                        }
-                    )
-                );
-                /* backward compatibility */
-                this.dispatchEvent(
-                    new CustomEvent(
-                        "puppet-redirect-pushstate",
-                        {
-                            "detail":{"url":url},
-                            "bubbles": true
-                        }
-                    )
+                      `${this.getAttribute('is')}-pushstate`,
+                      {
+                        "detail":{"url":url},
+                        "bubbles": true
+                      }
+                  )
                 );
             }
             else {
