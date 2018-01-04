@@ -27,7 +27,6 @@
          * @property {String} url new URL
          */
         attributeChangedCallback(attributeName, oldVal, newVal) {
-            debugger
             switch(attributeName) {
                 case "url":
                     if(document.contains(this)){
@@ -50,7 +49,7 @@
                 history.pushState(null, null, url);
                 this.dispatchEvent(
                     new CustomEvent(
-                      `${this.localName}-pushstate`,
+                      'palindrom-redirect-pushstate',
                       {
                         "detail":{"url":url},
                         "bubbles": true
