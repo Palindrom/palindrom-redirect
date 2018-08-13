@@ -26,13 +26,13 @@
 
 <script>
     let redirect;
-    describe('palindrom-redirect', function () {
+    describe('palindrom-redirect - history mode', function () {
         beforeEach(function () {
             domBind = fixture('element');
             const palRed = domBind.$.palRed;
         });
 
-        it('Should dispatch an event when url prop changes in history mode', function (done) {
+        it('Should dispatch an event when url prop changes', function (done) {
             palRed.addEventListener('palindrom-redirect-pushstate', ev => {
                 expect(ev.detail.url).to.equal('/index.html');
                 done();
@@ -40,7 +40,7 @@
             palRed.url = '/index.html';
         });
 
-        it('Should dispatch an event when url attribute changes in history mode', function (done) {
+        it('Should dispatch an event when url attribute changes', function (done) {
             palRed.addEventListener('palindrom-redirect-pushstate', ev => {
                 expect(ev.detail.url).to.equal('/index.html');
                 done();
