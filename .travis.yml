@@ -6,6 +6,7 @@ before_script:
   - npm install bower	
   - 'export PATH=$PWD/node_modules/.bin:$PATH'	
   - bower install	
+  - bower install web-component-tester	
 node_js: 8	
 addons:	
   firefox: latest	
