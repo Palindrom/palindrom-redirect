@@ -27,31 +27,27 @@
          * @property {String} url new URL
          */
         attributeChangedCallback(attributeName, oldVal, newVal) {
-            switch(attributeName) {
-                case "url":
-                    if(document.contains(this)){
-						this.redirect(newVal);
-                    }
-                    break;
+            if(document.contains(this)){
+                this.redirect(newVal);
             }
         }
         redirect(url){
             if(!url){
                 return false;
             }
-            if(url == "current") {
+            if(url === "current") {
                 url = window.location.href;
             }
-            var target = this.getAttribute("target");
+            const target = this.getAttribute("target");
             if(target && target !== '_self'){
-                window.open(url, this.getAttribute("target"));
+                window.open(url, target);
             } else if(this.hasAttribute("history")) {
                 history.pushState(null, null, url);
                 this.dispatchEvent(
                     new CustomEvent(
                       'palindrom-redirect-pushstate',
                       {
-                        "detail":{"url":url},
+                        "detail":{ url },
                         "bubbles": true
                       }
                   )
