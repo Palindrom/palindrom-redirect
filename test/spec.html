@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../palindrom-redirect.html">
+</head>
+
+<body>
+    <test-fixture id="element">
+        <template>
+            <dom-bind>
+                <template>
+                    <palindrom-redirect history id="palRed"></palindrom-redirect>
+                </template>
+            </dom-bind>
+        </template>
+    </test-fixture>
+</body>
+
+<script>
+    let redirect;
+    describe('palindrom-redirect', function () {
+        beforeEach(function () {
+            domBind = fixture('element');
+            const palRed = domBind.$.palRed;
+        });
+
+        it('Should dispatch an event when url prop changes in history mode', function (done) {
+            palRed.addEventListener('palindrom-redirect-pushstate', ev => {
+                expect(ev.detail.url).to.equal('/index.html');
+                done();
+            });
+            palRed.url = '/index.html';
+        });
+
+        it('Should dispatch an event when url attribute changes in history mode', function (done) {
+            palRed.addEventListener('palindrom-redirect-pushstate', ev => {
+                expect(ev.detail.url).to.equal('/index.html');
+                done();
+            });
+            palRed.setAttribute('url', '/index.html');
+        });
+    });
+</script>
+
+</html>

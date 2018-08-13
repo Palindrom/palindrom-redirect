@@ -4,7 +4,6 @@
   "description": "Custom Element that redirects to a new URL when an attribute is changed. It's also being listened by PuppetJS.",
   "version": "1.0.0",
   "main": "puppet-redirect.html",
-  "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

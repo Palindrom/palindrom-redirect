@@ -14,10 +14,12 @@
     "preview.png",
     "Gruntfile.js"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "authors": [
     "Marcin Warpechowski <marcin@nextgen.pl>",
     "Tomek Wytrebowicz <tomalecpub@gmail.com>"
-  ]
+  ],
+  "devDependencies": {
+    "polymer": "^2.0.0"
+  }
 }
