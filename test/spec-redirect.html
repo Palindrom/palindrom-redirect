@@ -20,26 +20,29 @@
 </body>
 
 <script>
-    let palRed;
-    describe('palindrom-redirect - redirect mode', function () {
-        beforeEach(function () {
-            palRed = fixture('element');
-        });
-
-        it('Should dispatch an event when url prop changes', function (done) {
-            palRed.addEventListener('url-changed', ev => {
-                done();
+    window.addEventListener('WebComponentsReady', function () {
+        let palRed;
+        describe('palindrom-redirect - redirect mode', function () {
+            beforeEach(function () {
+                palRed = fixture('element');
             });
-            palRed.url = '/index.html';
-        });
 
-        it('Should dispatch an event when url attribute changes', function (done) {
-            palRed.addEventListener('url-changed', ev => {
-                done();
+            it('Should dispatch an event when url prop changes', function (done) {
+                palRed.addEventListener('url-changed', ev => {
+                    done();
+                });
+                palRed.url = '/index.html';
             });
-            palRed.setAttribute('url', '/index.html');
+
+            it('Should dispatch an event when url attribute changes', function (done) {
+                palRed.addEventListener('url-changed', ev => {
+                    done();
+                });
+                palRed.setAttribute('url', '/index.html');
+            });
         });
-    });
+    })
+
 </script>
 
 </html>
