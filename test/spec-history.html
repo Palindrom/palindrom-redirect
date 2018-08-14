@@ -8,28 +8,22 @@
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../../polymer/polymer.html">
     <link rel="import" href="../palindrom-redirect.html">
 </head>
 
 <body>
     <test-fixture id="element">
         <template>
-            <dom-bind>
-                <template>
-                    <palindrom-redirect history id="palRed"></palindrom-redirect>
-                </template>
-            </dom-bind>
+            <palindrom-redirect history id="palRed"></palindrom-redirect>
         </template>
     </test-fixture>
 </body>
 
 <script>
-    let redirect;
+    let palRed;
     describe('palindrom-redirect - history mode', function () {
         beforeEach(function () {
-            domBind = fixture('element');
-            const palRed = domBind.$.palRed;
+            palRed = fixture('element');
         });
 
         it('Should dispatch an event when url prop changes', function (done) {
