@@ -1,4 +1,5 @@
 <script>
+    /* palindrom redirect version: 1.0.1 */
     customElements.define(
         'palindrom-redirect',
         class PalindromRedirectElement extends HTMLElement {
@@ -28,7 +29,7 @@
              * @property {String} url new URL
              */
             attributeChangedCallback(attributeName, oldVal, newVal) {
-                if (document.contains(this)) {
+                if (this.getRootNode().contains(this)) {
                     this.redirect(newVal);
                 }
             }
