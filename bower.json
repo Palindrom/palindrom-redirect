@@ -12,7 +12,9 @@
     "node_modules",
     "bower_components",
     "preview.png",
-    "Gruntfile.js"
+    "Gruntfile.js",
+    "test",
+    "wct.conf.json"
   ],
   "dependencies": {},
   "authors": [
