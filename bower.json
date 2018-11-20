@@ -16,7 +16,12 @@
     "test",
     "wct.conf.json"
   ],
-  "dependencies": {},
+  "dependencies": {
+  },
+  "devDependencies": {
+    "web-component-tester": "^6.0.0",
+    "webcomponentsjs": "1.*.*"
+  },
   "authors": [
     "Marcin Warpechowski <marcin@nextgen.pl>",
     "Tomek Wytrebowicz <tomalecpub@gmail.com>"
