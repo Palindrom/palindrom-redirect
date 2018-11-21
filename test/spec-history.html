@@ -42,6 +42,78 @@
                 });
                 palRed.setAttribute('url', '/index.html');
             });
+
+            it('When url prop changes before the element is attached, should dispatch an event once element is connected back', function (done) {
+                const parent = palRed.parentNode;
+                parent.removeChild(palRed);
+                palRed.addEventListener('palindrom-redirect-pushstate', ev => {
+                    expect(ev.detail.url).to.equal('/index.html');
+                    done();
+                });
+                palRed.url = '/index.html';
+                parent.appendChild(palRed);
+            });
+
+            it('When url attribute changes before the element is attached, should dispatch an event once element is connected back', function (done) {
+                const parent = palRed.parentNode;
+                parent.removeChild(palRed);
+                palRed.addEventListener('palindrom-redirect-pushstate', ev => {
+                    expect(ev.detail.url).to.equal('/index.html');
+                    done();
+                });
+                palRed.setAttribute('url', '/index.html');
+                parent.appendChild(palRed);
+            });
+
+            describe('event bubbling', () => {
+                let eventListener;
+
+                afterEach(function () {
+                    window.removeEventListener('palindrom-redirect-pushstate', eventListener);
+                });
+
+                it('Should dispatch a bubbling event when url prop changes', function (done) {
+                    eventListener = ev => {
+                        expect(ev.detail.url).to.equal('/index.html');
+                        done();
+                    };
+                    window.addEventListener('palindrom-redirect-pushstate', eventListener); 
+                    palRed.url = '/index.html';
+                });
+
+                it('Should dispatch a bubbling event when url attribute changes', function (done) {
+                    eventListener = ev => {
+                        expect(ev.detail.url).to.equal('/index.html');
+                        done();
+                    };
+                    window.addEventListener('palindrom-redirect-pushstate', eventListener); 
+                    palRed.setAttribute('url', '/index.html');
+                });
+
+                it('When url prop changes before the element is attached, should dispatch a bubbling event once element is connected back', function (done) {
+                    const parent = palRed.parentNode;
+                    parent.removeChild(palRed);
+                    eventListener = ev => {
+                        expect(ev.detail.url).to.equal('/index.html');
+                        done();
+                    };
+                    window.addEventListener('palindrom-redirect-pushstate', eventListener); 
+                    palRed.url = '/index.html';
+                    parent.appendChild(palRed);
+                });
+
+                it('When url attribute changes before the element is attached, should dispatch a bubbling event once element is connected back', function (done) {
+                    const parent = palRed.parentNode;
+                    parent.removeChild(palRed);
+                    eventListener = ev => {
+                        expect(ev.detail.url).to.equal('/index.html');
+                        done();
+                    };
+                    window.addEventListener('palindrom-redirect-pushstate', eventListener); 
+                    palRed.setAttribute('url', '/index.html');
+                    parent.appendChild(palRed);
+                });
+            });
         });
     });
 </script>
