@@ -40,20 +40,9 @@
                 if (url === 'current') {
                     url = window.location.href;
                 }
-                const target = this.getAttribute('target');
-                if (target && target !== '_self') {
-                    window.open(url, target);
-                } else if (this.hasAttribute('history')) {
-                    history.pushState(null, null, url);
-                    this.dispatchEvent(
-                        new CustomEvent('palindrom-redirect-pushstate', {
-                            detail: { url },
-                            bubbles: true
-                        })
-                    );
-                } else {
-                    window.location = url;
-                }
+                const target = this.getAttribute('target') || this.hasAttribute('history') ? "_self" : "_top";
+                this.innerHTML = `<a href="${url}" target="${target}"></a>`;
+                this.querySelector("a").click();
                 this.setAttribute('url', '');
                 this.dispatchEvent(new CustomEvent('url-changed', { detail: '' }));
                 return url;

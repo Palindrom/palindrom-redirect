@@ -21,10 +21,19 @@
 
 <script>
     window.addEventListener('WebComponentsReady', function () {
-        let palRed;
+        let palRed, eventSpy;
+
         describe('palindrom-redirect - redirect mode', function () {
             beforeEach(function () {
                 palRed = fixture('element');
+                eventSpy = sinon.spy((ev) => {
+                    ev.preventDefault();
+                });
+                document.addEventListener('click', eventSpy);
+            });
+
+            afterEach(function () {
+                document.removeEventListener('click', eventSpy);
             });
 
             it('Should dispatch an event when url prop changes', function (done) {

@@ -21,98 +21,51 @@
 
 <script>
     window.addEventListener('WebComponentsReady', function () {
-        let palRed;
+        let palRed, eventSpy;
+
         describe('palindrom-redirect - history mode', function () {
             beforeEach(function () {
                 palRed = fixture('element');
+                eventSpy = sinon.spy((ev) => {
+                    ev.preventDefault();
+                });
+                document.addEventListener('click', eventSpy);
             });
 
-            it('Should dispatch an event when url prop changes', function (done) {
-                palRed.addEventListener('palindrom-redirect-pushstate', ev => {
-                    expect(ev.detail.url).to.equal('/index.html');
-                    done();
-                });
+            afterEach(function () {
+                document.removeEventListener('click', eventSpy);
+            });
+
+            it('Should dispatch an event when url prop changes', function () {
                 palRed.url = '/index.html';
+                expect(eventSpy.callCount).to.equal(1);
+                expect(eventSpy.firstCall.args[0].target.getAttribute("href")).to.equal('/index.html');
             });
 
-            it('Should dispatch an event when url attribute changes', function (done) {
-                palRed.addEventListener('palindrom-redirect-pushstate', ev => {
-                    expect(ev.detail.url).to.equal('/index.html');
-                    done();
-                });
+            it('Should dispatch an event when url attribute changes', function () {
                 palRed.setAttribute('url', '/index.html');
+                expect(eventSpy.callCount).to.equal(1);
+                expect(eventSpy.firstCall.args[0].target.getAttribute("href")).to.equal('/index.html');
             });
 
-            it('Should dispatch an event when url prop changes before the element is attached', function (done) {
+            it('Should dispatch an event when url prop changes before the element is attached', function () {
                 const parent = palRed.parentNode;
                 parent.removeChild(palRed);
-                palRed.addEventListener('palindrom-redirect-pushstate', ev => {
-                    expect(ev.detail.url).to.equal('/index.html');
-                    done();
-                });
                 palRed.url = '/index.html';
+                expect(eventSpy.callCount).to.equal(0);
                 parent.appendChild(palRed);
+                expect(eventSpy.callCount).to.equal(1);
+                expect(eventSpy.firstCall.args[0].target.getAttribute("href")).to.equal('/index.html');
             });
 
-            it('Should dispatch an event when url attribute changes before the element is attached', function (done) {
+            it('Should dispatch an event when url attribute changes before the element is attached', function () {
                 const parent = palRed.parentNode;
                 parent.removeChild(palRed);
-                palRed.addEventListener('palindrom-redirect-pushstate', ev => {
-                    expect(ev.detail.url).to.equal('/index.html');
-                    done();
-                });
                 palRed.setAttribute('url', '/index.html');
+                expect(eventSpy.callCount).to.equal(0);
                 parent.appendChild(palRed);
-            });
-
-            describe('event bubbling', () => {
-                let eventListener;
-
-                afterEach(function () {
-                    window.removeEventListener('palindrom-redirect-pushstate', eventListener);
-                });
-
-                it('Should dispatch a bubbling event when url prop changes', function (done) {
-                    eventListener = ev => {
-                        expect(ev.detail.url).to.equal('/index.html');
-                        done();
-                    };
-                    window.addEventListener('palindrom-redirect-pushstate', eventListener); 
-                    palRed.url = '/index.html';
-                });
-
-                it('Should dispatch a bubbling event when url attribute changes', function (done) {
-                    eventListener = ev => {
-                        expect(ev.detail.url).to.equal('/index.html');
-                        done();
-                    };
-                    window.addEventListener('palindrom-redirect-pushstate', eventListener); 
-                    palRed.setAttribute('url', '/index.html');
-                });
-
-                it('Should dispatch a bubbling event when url prop changes before the element is attached', function (done) {
-                    const parent = palRed.parentNode;
-                    parent.removeChild(palRed);
-                    eventListener = ev => {
-                        expect(ev.detail.url).to.equal('/index.html');
-                        done();
-                    };
-                    window.addEventListener('palindrom-redirect-pushstate', eventListener); 
-                    palRed.url = '/index.html';
-                    parent.appendChild(palRed);
-                });
-
-                it('Should dispatch a bubbling event when url attribute changes before the element is attached', function (done) {
-                    const parent = palRed.parentNode;
-                    parent.removeChild(palRed);
-                    eventListener = ev => {
-                        expect(ev.detail.url).to.equal('/index.html');
-                        done();
-                    };
-                    window.addEventListener('palindrom-redirect-pushstate', eventListener); 
-                    palRed.setAttribute('url', '/index.html');
-                    parent.appendChild(palRed);
-                });
+                expect(eventSpy.callCount).to.equal(1);
+                expect(eventSpy.firstCall.args[0].target.getAttribute("href")).to.equal('/index.html');
             });
         });
     });

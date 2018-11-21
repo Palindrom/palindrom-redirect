@@ -31,12 +31,21 @@
                 });
             })
 
-            it('Should dispatch an event when url prop changes', function (done) {
-                palRed.addEventListener('palindrom-redirect-pushstate', ev => {
-                    expect(ev.detail.url).to.equal('/index.html');
-                    done();
+            beforeEach(function () {
+                eventSpy = sinon.spy((ev) => {
+                    ev.preventDefault();
                 });
+                document.addEventListener('click', eventSpy);
+            });
+
+            afterEach(function () {
+                document.removeEventListener('click', eventSpy);
+            });
+
+            it('Should dispatch an event when url prop changes', function () {
                 palRed.url = '/index.html';
+                expect(eventSpy.callCount).to.equal(1);
+                expect(eventSpy.firstCall.args[0].path[0].getAttribute("href")).to.equal('/index.html');
             });
         });
     })
