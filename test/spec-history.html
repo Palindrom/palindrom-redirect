@@ -43,7 +43,7 @@
                 palRed.setAttribute('url', '/index.html');
             });
 
-            it('Should dispatch an event when url prop changes before the element is attached', function (done) {
+            it('When url prop changes before the element is attached, should dispatch an event once element is connected back', function (done) {
                 const parent = palRed.parentNode;
                 parent.removeChild(palRed);
                 palRed.addEventListener('palindrom-redirect-pushstate', ev => {
@@ -54,7 +54,7 @@
                 parent.appendChild(palRed);
             });
 
-            it('Should dispatch an event when url attribute changes before the element is attached', function (done) {
+            it('When url attribute changes before the element is attached, should dispatch an event once element is connected back', function (done) {
                 const parent = palRed.parentNode;
                 parent.removeChild(palRed);
                 palRed.addEventListener('palindrom-redirect-pushstate', ev => {
@@ -90,7 +90,7 @@
                     palRed.setAttribute('url', '/index.html');
                 });
 
-                it('Should dispatch a bubbling event when url prop changes before the element is attached', function (done) {
+                it('When url prop changes before the element is attached, should dispatch a bubbling event once element is connected back', function (done) {
                     const parent = palRed.parentNode;
                     parent.removeChild(palRed);
                     eventListener = ev => {
@@ -102,7 +102,7 @@
                     parent.appendChild(palRed);
                 });
 
-                it('Should dispatch a bubbling event when url attribute changes before the element is attached', function (done) {
+                it('When url attribute changes before the element is attached, should dispatch a bubbling event once element is connected back', function (done) {
                     const parent = palRed.parentNode;
                     parent.removeChild(palRed);
                     eventListener = ev => {
